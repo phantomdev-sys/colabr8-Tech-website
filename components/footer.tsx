@@ -13,7 +13,7 @@ const featureLinks = [
 
 const resourceLinks = [
   { label: "Help centre", href: "/help" },
-  { label: "Documentation", href: "/docs" },
+  { label: "Documentation", href: "/help" },
   { label: "Contact support", href: "/contact" },
 ];
 
