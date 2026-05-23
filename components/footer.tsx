@@ -20,7 +20,7 @@ const resourceLinks = [
 const companyLinks = [
   { label: "Privacy policy", href: "/privacy" },
   { label: "Terms", href: "/terms" },
-  { label: "Data deletion", href: "/data-deletion" },
+  { label: "Data deletion", href: "/privacy#your-rights" },
   { label: "SaaS terms", href: "/saas-terms" },
 ];
 
