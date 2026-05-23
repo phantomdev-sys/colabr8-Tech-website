@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #3DED7A;
+  --color-bg: #0A0A0A;
+  --color-surface: #111111;
+  --color-surface-elevated: #1A1A1A;
+  --color-border: #222222;
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #A1A1AA;
+  --color-text-muted: #52525B;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text-primary);
+  }
+}
+
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes green-glow-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.75; }
+}
+
+@keyframes cta-gradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes mesh-drift-a {
+  0%   { transform: translate(0%, 0%) scale(1); }
+  33%  { transform: translate(6%, -8%) scale(1.08); }
+  66%  { transform: translate(-5%, 5%) scale(0.95); }
+  100% { transform: translate(0%, 0%) scale(1); }
+}
+
+@keyframes mesh-drift-b {
+  0%   { transform: translate(0%, 0%) scale(1); }
+  40%  { transform: translate(-8%, 6%) scale(1.1); }
+  70%  { transform: translate(5%, -4%) scale(0.93); }
+  100% { transform: translate(0%, 0%) scale(1); }
+}
+
+@keyframes mesh-drift-c {
+  0%   { transform: translate(0%, 0%) scale(1); }
+  50%  { transform: translate(4%, 7%) scale(1.06); }
+  100% { transform: translate(0%, 0%) scale(1); }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-ticker {
+    animation: ticker 35s linear infinite;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-green-glow {
+    animation: green-glow-pulse 4s ease-in-out infinite;
+  }
+
+  .animate-cta-gradient {
+    animation: cta-gradient 8s ease infinite;
+    background-size: 200% 200%;
+  }
+
+  .animate-mesh-a {
+    animation: mesh-drift-a 28s ease-in-out infinite;
+  }
+
+  .animate-mesh-b {
+    animation: mesh-drift-b 24s ease-in-out infinite;
+  }
+
+  .animate-mesh-c {
+    animation: mesh-drift-c 32s ease-in-out infinite;
+  }
+}
