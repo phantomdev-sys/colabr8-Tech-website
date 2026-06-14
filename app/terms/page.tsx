@@ -13,7 +13,7 @@ export default function TermsPage() {
           <div className="mb-10">
             <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-3.5 py-1.5 mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-              <span className="text-primary text-xs font-semibold tracking-wider uppercase">Last updated: May 2026</span>
+              <span className="text-primary text-xs font-semibold tracking-wider uppercase">Last updated: June 2026</span>
             </div>
             <h1 className="font-display font-bold text-4xl sm:text-5xl text-white mb-5 leading-tight">
               Terms of Service
@@ -155,7 +155,53 @@ export default function TermsPage() {
               </p>
             </Section>
 
-            <Section number="15" title="Contact">
+            <Section number="15" title="Use of Social Media / Meta Platform Data">
+              <p>
+                When you connect a social media account — such as a Facebook Page, Instagram, LinkedIn,
+                X (Twitter) or TikTok account — to the platform, the following terms apply in addition to the
+                rest of these Terms.
+              </p>
+              <p>
+                <strong className="text-white">Permitted use.</strong> You may use connected accounts only to
+                authenticate yourself, connect and manage your accounts, publish and schedule content, and
+                display account information within the platform.
+              </p>
+              <p>
+                <strong className="text-white">Data accessed.</strong> Depending on the platform, we may access
+                your user ID, public profile information, profile picture, and Page access tokens, together with
+                the permissions required to publish or schedule content.
+              </p>
+              <p>
+                <strong className="text-white">Storage and retention.</strong> Access tokens and related data
+                are stored securely and only for as long as the relevant account remains connected. They are
+                deleted within 30 days of you disconnecting the account or deleting your COLABR8 TECH account.
+              </p>
+              <p>
+                <strong className="text-white">No selling or sharing.</strong> We do not sell, rent, or share
+                data obtained from these platforms with any third party outside the Service.
+              </p>
+              <p>
+                <strong className="text-white">Compliance.</strong> Our use of this data complies with the Meta
+                Platform Terms and Developer Policies, the TikTok and LinkedIn developer and API policies, and
+                UK GDPR.
+              </p>
+              <p>
+                <strong className="text-white">Prohibited uses.</strong> You may not use the platform or any
+                connected account data to:
+              </p>
+              <ul>
+                <li>Build advertising profiles or audiences</li>
+                <li>Track users across services</li>
+                <li>Act as, or provide data to, a data broker</li>
+              </ul>
+              <p>
+                <strong className="text-white">Suspension and termination.</strong> We may suspend or revoke
+                any social media integration, or your access to it, if we believe it is being used in breach of
+                these Terms or any applicable platform policy.
+              </p>
+            </Section>
+
+            <Section number="16" title="Contact">
               <div className="bg-surface border border-divider rounded-xl px-6 py-5 text-sm text-secondary leading-6 space-y-0.5">
                 <p className="text-white font-semibold">COLABR8 TECH LIMITED</p>
                 <p>Unit 102 Embroidery Mill, Abbey Mill Business Centre</p>

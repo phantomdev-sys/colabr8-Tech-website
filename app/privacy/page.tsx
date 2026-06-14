@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Nav from "@/components/nav";
 import Footer from "@/components/footer";
 
@@ -13,7 +14,7 @@ export default function PrivacyPage() {
           <div className="mb-10">
             <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-3.5 py-1.5 mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-              <span className="text-primary text-xs font-semibold tracking-wider uppercase">Last updated: May 2026</span>
+              <span className="text-primary text-xs font-semibold tracking-wider uppercase">Last updated: June 2026</span>
             </div>
             <h1 className="font-display font-bold text-4xl sm:text-5xl text-white mb-5 leading-tight">
               Privacy Policy
@@ -87,7 +88,60 @@ export default function PrivacyPage() {
               <p>All third-party providers are bound by data processing agreements and are GDPR-compliant.</p>
             </Section>
 
-            <Section number="5" title="Data retention">
+            <Section number="5" title="Social Media Integrations">
+              <p>
+                Our platform lets you connect third-party social media accounts — including Facebook Pages,
+                Instagram, LinkedIn, X (Twitter) and TikTok — so that you can schedule and publish content
+                directly from COLABR8 TECH.
+              </p>
+              <p>When you connect an account, we may receive:</p>
+              <ul>
+                <li>Public profile information, such as your name, username, and profile picture</li>
+                <li>Account and Page identifiers (IDs)</li>
+                <li>Page access tokens issued by the platform</li>
+                <li>The permissions required to publish or schedule content on your behalf</li>
+              </ul>
+              <p>
+                We only request the access needed to provide these features. We do not access your private
+                messages or direct messages.
+              </p>
+            </Section>
+
+            <Section number="6" title="Facebook & Meta Platform Compliance">
+              <p>
+                Our use of data obtained through Facebook and Instagram complies with the Meta Platform Terms,
+                the Meta Developer Policies, and the Facebook Login requirements.
+              </p>
+              <p>
+                We use Facebook Login solely to authenticate you, connect your Facebook Pages, and enable post
+                creation and scheduling within the platform.
+              </p>
+              <p>We do not:</p>
+              <ul>
+                <li>Sell or rent data obtained from Meta</li>
+                <li>Use Meta data for advertising or to build user profiles</li>
+                <li>Share Meta data with any third party outside the Service</li>
+              </ul>
+              <p>
+                Data obtained through Meta is retained only while your account is active and the relevant Page
+                remains connected. It is deleted when you disconnect the account or delete your COLABR8 TECH
+                account. To request deletion, see our{" "}
+                <Link href="/data-deletion" className="text-primary hover:underline">
+                  Data Deletion Instructions
+                </Link>.
+              </p>
+            </Section>
+
+            <Section number="7" title="Other Platforms (LinkedIn, TikTok, X, Instagram)">
+              <p>
+                For LinkedIn, TikTok, X (Twitter) and Instagram, we request only the permissions necessary to
+                authenticate you, create content, and schedule or publish posts on your behalf. We comply with
+                each provider&apos;s API terms and developer policies. The same retention, deletion, and
+                no-sale rules described above apply to data obtained from these platforms.
+              </p>
+            </Section>
+
+            <Section number="8" title="Data retention">
               <p>
                 We retain your account data for as long as your subscription is active, and for up to 12 months
                 after termination to allow for account recovery and legal compliance. CRM data you enter is retained
@@ -95,7 +149,7 @@ export default function PrivacyPage() {
               </p>
             </Section>
 
-            <Section number="6" title="Your rights" id="your-rights">
+            <Section number="9" title="Your rights" id="your-rights">
               <p>Under UK GDPR, you have the right to:</p>
               <ul>
                 <li>Access the personal data we hold about you</li>
@@ -113,14 +167,14 @@ export default function PrivacyPage() {
               </p>
             </Section>
 
-            <Section number="7" title="Cookies">
+            <Section number="10" title="Cookies">
               <p>
                 We use essential cookies to operate the platform. We do not use advertising or tracking cookies.
                 You can manage cookie preferences in your browser settings.
               </p>
             </Section>
 
-            <Section number="8" title="Security">
+            <Section number="11" title="Security">
               <p>
                 We implement industry-standard security measures including encryption in transit (TLS), encrypted
                 storage, and access controls. However, no system is entirely secure and we cannot guarantee
@@ -128,14 +182,14 @@ export default function PrivacyPage() {
               </p>
             </Section>
 
-            <Section number="9" title="International transfers">
+            <Section number="12" title="International transfers">
               <p>
                 Our infrastructure providers may process data outside the UK. Where this occurs, we ensure
                 appropriate safeguards are in place in accordance with UK GDPR requirements.
               </p>
             </Section>
 
-            <Section number="10" title="Changes to this policy">
+            <Section number="13" title="Changes to this policy">
               <p>
                 We may update this Privacy Policy from time to time. We will notify you of significant changes
                 by email or via the platform. Continued use of the platform after changes constitutes acceptance
@@ -143,7 +197,7 @@ export default function PrivacyPage() {
               </p>
             </Section>
 
-            <Section number="11" title="Contact">
+            <Section number="14" title="Contact">
               <div className="bg-surface border border-divider rounded-xl px-6 py-5 text-sm text-secondary leading-6 space-y-0.5">
                 <p className="text-white font-semibold">COLABR8 TECH LIMITED</p>
                 <p>Unit 102 Embroidery Mill, Abbey Mill Business Centre</p>

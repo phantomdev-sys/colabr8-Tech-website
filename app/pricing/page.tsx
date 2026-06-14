@@ -35,7 +35,8 @@ const plans = [
     annual: 41,
     highlight: false,
     cta: "Start free trial",
-    ctaHref: "https://crm.colabr8.tech",
+    ctaHref: null as string | null,
+    priceId: "price_1TaHygG9CdTX7LeLPDs6eLX1",
     features: [
       "Core CRM — companies & contacts",
       "Unlimited contacts",
@@ -56,7 +57,8 @@ const plans = [
     highlight: true,
     badge: "Most Popular",
     cta: "Start free trial",
-    ctaHref: "https://crm.colabr8.tech",
+    ctaHref: null as string | null,
+    priceId: "price_1TaI12G9CdTX7LeLlP4ZNQk8",
     features: [
       "Everything in Starter",
       "Quotes and deal-linked services",
@@ -79,7 +81,8 @@ const plans = [
     annual: 83,
     highlight: false,
     cta: "Contact us",
-    ctaHref: "/contact",
+    ctaHref: "/contact" as string | null,
+    priceId: null as string | null,
     features: [
       "Everything in Growth",
       "Full white-label branding",
@@ -295,12 +298,70 @@ function FaqItem({ faq, index }: { faq: { q: string; a: string }; index: number 
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
+// ─── Toast ────────────────────────────────────────────────────────────────────
+
+function Toast({ message, onDismiss }: { message: string; onDismiss: () => void }) {
+  return (
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: 24 }}
+        transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+        className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 bg-surface-elevated border border-divider text-white text-sm px-5 py-3.5 rounded-2xl shadow-xl"
+      >
+        <span className="w-2 h-2 rounded-full bg-red-400 flex-shrink-0" />
+        <span>{message}</span>
+        <button
+          onClick={onDismiss}
+          className="ml-2 text-muted hover:text-white transition-colors"
+          aria-label="Dismiss"
+        >
+          ✕
+        </button>
+      </motion.div>
+    </AnimatePresence>
+  );
+}
+
+// ─── Page ─────────────────────────────────────────────────────────────────────
+
 export default function PricingPage() {
   const [annual, setAnnual] = useState(false);
+  const [loadingPlan, setLoadingPlan] = useState<string | null>(null);
+  const [toastMsg, setToastMsg] = useState<string | null>(null);
   const heroRef = useRef<HTMLDivElement>(null);
   const heroInView = useInView(heroRef, { once: true });
   const tableRef = useRef<HTMLDivElement>(null);
   const tableInView = useInView(tableRef, { once: true, margin: "-60px" });
+  const toastTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  function showToast(message: string) {
+    setToastMsg(message);
+    if (toastTimer.current) clearTimeout(toastTimer.current);
+    toastTimer.current = setTimeout(() => setToastMsg(null), 5000);
+  }
+
+  async function handleCheckout(priceId: string, planName: string) {
+    setLoadingPlan(planName);
+    try {
+      const res = await fetch("/api/stripe/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ priceId, planName }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.url) {
+        showToast(data.error ?? "Something went wrong. Please try again.");
+        return;
+      }
+      window.location.href = data.url;
+    } catch {
+      showToast("Unable to connect. Please check your connection and try again.");
+    } finally {
+      setLoadingPlan(null);
+    }
+  }
 
   return (
     <div className="min-h-screen bg-bg">
@@ -447,16 +508,52 @@ export default function PricingPage() {
                   ))}
                 </ul>
 
-                <Link
-                  href={plan.ctaHref}
-                  className={`w-full text-center text-sm font-semibold py-3.5 rounded-full transition-all duration-200 ${
-                    plan.highlight
-                      ? "bg-primary text-bg hover:bg-primary/90 hover:shadow-[0_0_24px_rgba(61,237,122,0.35)]"
-                      : "border border-divider text-white hover:border-white/30 hover:bg-white/5"
-                  }`}
-                >
-                  {plan.cta}
-                </Link>
+                {plan.priceId ? (
+                  <button
+                    onClick={() => handleCheckout(plan.priceId!, plan.name)}
+                    disabled={loadingPlan === plan.name}
+                    className={`w-full text-center text-sm font-semibold py-3.5 rounded-full transition-all duration-200 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2 ${
+                      plan.highlight
+                        ? "bg-primary text-bg hover:bg-primary/90 hover:shadow-[0_0_24px_rgba(61,237,122,0.35)]"
+                        : "border border-divider text-white hover:border-white/30 hover:bg-white/5"
+                    }`}
+                  >
+                    {loadingPlan === plan.name ? (
+                      <>
+                        <svg
+                          className="animate-spin w-4 h-4 flex-shrink-0"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                        >
+                          <circle
+                            className="opacity-25"
+                            cx="12" cy="12" r="10"
+                            stroke="currentColor" strokeWidth="3"
+                          />
+                          <path
+                            className="opacity-75"
+                            fill="currentColor"
+                            d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                          />
+                        </svg>
+                        Redirecting…
+                      </>
+                    ) : (
+                      plan.cta
+                    )}
+                  </button>
+                ) : (
+                  <Link
+                    href={plan.ctaHref!}
+                    className={`w-full text-center text-sm font-semibold py-3.5 rounded-full transition-all duration-200 block ${
+                      plan.highlight
+                        ? "bg-primary text-bg hover:bg-primary/90 hover:shadow-[0_0_24px_rgba(61,237,122,0.35)]"
+                        : "border border-divider text-white hover:border-white/30 hover:bg-white/5"
+                    }`}
+                  >
+                    {plan.cta}
+                  </Link>
+                )}
               </motion.div>
             ))}
           </div>
@@ -593,6 +690,10 @@ export default function PricingPage() {
       <CTASection />
 
       <Footer />
+
+      {toastMsg && (
+        <Toast message={toastMsg} onDismiss={() => setToastMsg(null)} />
+      )}
     </div>
   );
 }
