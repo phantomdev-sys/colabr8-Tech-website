@@ -75,7 +75,7 @@ const data: ComparePageData = {
     },
     {
       label: "Agency with white-label + multi-client",
-      colabr8Price: "£99/mo",
+      colabr8Price: "POA",
       competitorPrice: "~£278/mo ($349)",
       note: "GoHighLevel Agency Unlimited",
     },
