@@ -74,7 +74,7 @@ const plans: Plan[] = [
     badge: "Most Popular",
     cta: "Start free trial",
     ctaHref: null as string | null,
-    priceId: "price_1TaI12G9CdTX7LeLlP4ZNQk8",
+    priceId: "price_1Tp6bcG9CdTX7LeLhIO1LpQH",
     features: [
       "Everything in Starter",
       "Portfolio Intelligence (MRR/ARR, renewal risk)",
