@@ -29,7 +29,15 @@ export const metadata: Metadata = {
   description:
     "The all-in-one CRM for SMEs, agencies and service teams. Full CRM, scheduling, social media, email campaigns, invoicing and AI — no per-seat fees.",
   metadataBase: new URL("https://colabr8.tech"),
-  icons: { icon: "/COLABR8-TECH-FAVICON.webp" },
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png" },
+    ],
+  },
   openGraph: {
     title: "COLABR8 TECH — CRM, Bookings, Invoicing & AI from £49/month",
     description:
