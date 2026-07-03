@@ -68,7 +68,7 @@ const data: ComparePageData = {
     },
     {
       label: "5-person team, full CRM + email",
-      colabr8Price: "£69/mo",
+      colabr8Price: "£99/mo",
       competitorPrice: "£300–500/mo",
       note: "HubSpot requires Sales + Marketing hubs",
     },

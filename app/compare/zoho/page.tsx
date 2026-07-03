@@ -74,7 +74,7 @@ const data: ComparePageData = {
     },
     {
       label: "5 users, CRM + email + social",
-      colabr8Price: "£69/mo",
+      colabr8Price: "£99/mo",
       competitorPrice: "£150–200/mo",
       note: "Zoho CRM + Campaigns + Social",
     },

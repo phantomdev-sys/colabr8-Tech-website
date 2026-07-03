@@ -27,7 +27,21 @@ interface FeatureGroup {
 
 // ─── Plans ────────────────────────────────────────────────────────────────────
 
-const plans = [
+interface Plan {
+  name: string;
+  tagline: string;
+  monthly: number | null;
+  annual: number | null;
+  priceLabel?: string;
+  highlight: boolean;
+  badge?: string;
+  cta: string;
+  ctaHref: string | null;
+  priceId: string | null;
+  features: string[];
+}
+
+const plans: Plan[] = [
   {
     name: "Starter",
     tagline: "For small teams getting organised",
@@ -40,20 +54,22 @@ const plans = [
     features: [
       "Core CRM — companies & contacts",
       "Unlimited contacts",
-      "Sales pipelines and deals",
-      "Basic bookings and scheduling",
-      "Tasks management",
+      "Sales pipelines & deals",
+      "Bookings & scheduling",
+      "Invoices & quotes",
+      "Social media scheduling",
+      "Email campaigns (usage-based)",
+      "AI workspace",
+      "Native inbox (IMAP/SMTP)",
       "Team access controls",
-      "CSV import & export",
-      "Activity timeline",
       "Email support",
     ],
   },
   {
     name: "Growth",
     tagline: "For growing service businesses",
-    monthly: 69,
-    annual: 58,
+    monthly: 99,
+    annual: 83,
     highlight: true,
     badge: "Most Popular",
     cta: "Start free trial",
@@ -61,39 +77,32 @@ const plans = [
     priceId: "price_1TaI12G9CdTX7LeLlP4ZNQk8",
     features: [
       "Everything in Starter",
-      "Quotes and deal-linked services",
-      "Advanced bookings & calendars",
-      "Invoices with branded PDFs",
-      "Social media scheduling",
-      "Email campaigns (usage-based)",
-      "Native inbox (IMAP/SMTP)",
-      "AI workspace",
+      "Portfolio Intelligence (MRR/ARR, renewal risk)",
       "Opportunity Radar",
-      "Feedback & approvals",
+      "Visitor Intelligence",
+      "Basic white-label (your logo & colours)",
       "Custom dashboards",
+      "Advanced bookings & calendars",
       "Priority support",
     ],
   },
   {
     name: "Enterprise",
     tagline: "For agencies and multi-team operations",
-    monthly: 99,
-    annual: 83,
+    monthly: null,
+    annual: null,
+    priceLabel: "POA",
     highlight: false,
     cta: "Contact us",
-    ctaHref: "/contact" as string | null,
-    priceId: null as string | null,
+    ctaHref: "/contact",
+    priceId: null,
     features: [
       "Everything in Growth",
-      "Full white-label branding",
-      "Advanced permissions & roles",
+      "Full white-label (custom sidebar labels & branded emails)",
       "Multi-tenant architecture",
-      "Visitor intelligence",
-      "Portfolio intelligence & radar",
-      "Attribution & ad performance",
+      "Advanced permissions & roles",
+      "Hands-on onboarding with a Colabr8 expert",
       "Industry templates",
-      "Stripe subscription management",
-      "Dedicated onboarding",
       "SLA-backed support",
       "Custom terms available",
     ],
@@ -123,7 +132,7 @@ const comparisonData: FeatureGroup[] = [
       { name: "Advanced bookings & calendars", starter: false, growth: true, enterprise: true },
       { name: "Per-staff availability rules", starter: false, growth: true, enterprise: true },
       { name: "Service catalogue", starter: false, growth: true, enterprise: true },
-      { name: "Invoices & quotes", starter: false, growth: true, enterprise: true },
+      { name: "Invoices & quotes", starter: true, growth: true, enterprise: true },
       { name: "Branded PDF generation", starter: false, growth: true, enterprise: true },
       { name: "Quote-to-invoice conversion", starter: false, growth: true, enterprise: true },
       { name: "Tasks & assignments", starter: true, growth: true, enterprise: true },
@@ -133,11 +142,11 @@ const comparisonData: FeatureGroup[] = [
   {
     group: "Marketing",
     rows: [
-      { name: "Email campaigns", starter: false, growth: "Usage-based", enterprise: "Usage-based" },
+      { name: "Email campaigns", starter: "Usage-based", growth: "Usage-based", enterprise: "Usage-based" },
       { name: "Visual email builder", starter: false, growth: true, enterprise: true },
       { name: "AI template generation", starter: false, growth: true, enterprise: true },
-      { name: "Native inbox (IMAP/SMTP)", starter: false, growth: true, enterprise: true },
-      { name: "Social media scheduling", starter: false, growth: true, enterprise: true },
+      { name: "Native inbox (IMAP/SMTP)", starter: true, growth: true, enterprise: true },
+      { name: "Social media scheduling", starter: true, growth: true, enterprise: true },
       { name: "Multi-platform social (FB, IG, LI, TT)", starter: false, growth: true, enterprise: true },
       { name: "Website lead capture", starter: false, growth: true, enterprise: true },
     ],
@@ -145,11 +154,11 @@ const comparisonData: FeatureGroup[] = [
   {
     group: "Intelligence",
     rows: [
-      { name: "AI workspace", starter: false, growth: true, enterprise: true },
+      { name: "AI workspace", starter: true, growth: true, enterprise: true },
       { name: "Opportunity Radar", starter: false, growth: true, enterprise: true },
-      { name: "Visitor intelligence", starter: false, growth: false, enterprise: true },
-      { name: "Portfolio intelligence", starter: false, growth: false, enterprise: true },
-      { name: "MRR / ARR tracking", starter: false, growth: false, enterprise: true },
+      { name: "Visitor intelligence", starter: false, growth: true, enterprise: true },
+      { name: "Portfolio intelligence", starter: false, growth: true, enterprise: true },
+      { name: "MRR / ARR tracking", starter: false, growth: true, enterprise: true },
       { name: "Attribution & ad performance", starter: false, growth: false, enterprise: true },
     ],
   },
@@ -166,7 +175,7 @@ const comparisonData: FeatureGroup[] = [
     rows: [
       { name: "Team access controls", starter: true, growth: true, enterprise: true },
       { name: "Advanced permissions & roles", starter: false, growth: false, enterprise: true },
-      { name: "White-label branding", starter: false, growth: false, enterprise: true },
+      { name: "White-label branding", starter: false, growth: "Basic", enterprise: "Full" },
       { name: "Multi-tenant architecture", starter: false, growth: false, enterprise: true },
       { name: "Industry templates", starter: false, growth: false, enterprise: true },
       { name: "Stripe subscription management", starter: false, growth: false, enterprise: true },
@@ -477,25 +486,35 @@ export default function PricingPage() {
                 <div className="mb-8">
                   <h2 className="font-display font-bold text-xl text-white mb-1">{plan.name}</h2>
                   <p className="text-secondary text-sm mb-6">{plan.tagline}</p>
-                  <div className="flex items-end gap-1.5">
-                    <AnimatePresence mode="wait">
-                      <motion.span
-                        key={annual ? "annual" : "monthly"}
-                        initial={{ opacity: 0, y: -12 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 12 }}
-                        transition={{ duration: 0.2 }}
-                        className="font-display font-extrabold text-5xl text-white"
-                      >
-                        £{annual ? plan.annual : plan.monthly}
-                      </motion.span>
-                    </AnimatePresence>
-                    <span className="text-secondary text-sm mb-2">/mo</span>
-                  </div>
-                  {annual && (
-                    <p className="text-muted text-xs mt-1">
-                      Billed annually — £{(annual ? plan.annual : plan.monthly) * 10}/yr
-                    </p>
+                  {plan.priceLabel ? (
+                    <div className="flex items-end gap-1.5">
+                      <span className="font-display font-extrabold text-5xl text-white">
+                        {plan.priceLabel}
+                      </span>
+                    </div>
+                  ) : (
+                    <>
+                      <div className="flex items-end gap-1.5">
+                        <AnimatePresence mode="wait">
+                          <motion.span
+                            key={annual ? "annual" : "monthly"}
+                            initial={{ opacity: 0, y: -12 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: 12 }}
+                            transition={{ duration: 0.2 }}
+                            className="font-display font-extrabold text-5xl text-white"
+                          >
+                            £{annual ? plan.annual : plan.monthly}
+                          </motion.span>
+                        </AnimatePresence>
+                        <span className="text-secondary text-sm mb-2">/mo</span>
+                      </div>
+                      {annual && (
+                        <p className="text-muted text-xs mt-1">
+                          Billed annually — £{(annual ? plan.annual! : plan.monthly!) * 10}/yr
+                        </p>
+                      )}
+                    </>
                   )}
                 </div>
 
@@ -604,7 +623,7 @@ export default function PricingPage() {
                       <div className="flex flex-col items-center gap-1">
                         {plan}
                         <span className="font-normal text-secondary text-xs">
-                          {i === 0 ? "£49/mo" : i === 1 ? "£69/mo" : "£99/mo"}
+                          {i === 0 ? "£49/mo" : i === 1 ? "£99/mo" : "POA"}
                         </span>
                       </div>
                     </th>

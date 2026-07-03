@@ -391,8 +391,8 @@ export default function ContactPage() {
                         >
                           <option value="">Select a plan</option>
                           <option value="starter">Starter — £49/month</option>
-                          <option value="growth">Growth — £69/month</option>
-                          <option value="enterprise">Enterprise — £99/month</option>
+                          <option value="growth">Growth — £99/month</option>
+                          <option value="enterprise">Enterprise — POA</option>
                           <option value="not-sure">Not sure yet</option>
                         </select>
                       </div>

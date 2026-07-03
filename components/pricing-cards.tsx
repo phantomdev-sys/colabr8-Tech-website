@@ -5,7 +5,20 @@ import Link from "next/link";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Check } from "lucide-react";
 
-const plans = [
+interface Plan {
+  name: string;
+  tagline: string;
+  monthly: number | null;
+  annual: number | null;
+  priceLabel?: string;
+  cta: string;
+  ctaHref: string;
+  highlight: boolean;
+  badge?: string;
+  features: string[];
+}
+
+const plans: Plan[] = [
   {
     name: "Starter",
     tagline: "For small teams getting organised",
@@ -17,8 +30,13 @@ const plans = [
     features: [
       "Core CRM — companies & contacts",
       "Unlimited contacts",
-      "Sales pipelines and deals",
-      "Basic bookings and scheduling",
+      "Sales pipelines & deals",
+      "Bookings & scheduling",
+      "Invoices & quotes",
+      "Social media scheduling",
+      "Email campaigns (usage-based)",
+      "AI workspace",
+      "Native inbox (IMAP/SMTP)",
       "Team access controls",
       "Email support",
     ],
@@ -26,41 +44,39 @@ const plans = [
   {
     name: "Growth",
     tagline: "For growing service businesses",
-    monthly: 69,
-    annual: 58,
+    monthly: 99,
+    annual: 83,
     cta: "Start free trial",
     ctaHref: "/pricing",
     highlight: true,
     badge: "Most Popular",
     features: [
       "Everything in Starter",
-      "Quotes and deal-linked services",
-      "Advanced bookings & calendars",
-      "Social media scheduling",
-      "Email campaigns (usage-based)",
+      "Portfolio Intelligence (MRR/ARR, renewal risk)",
+      "Opportunity Radar",
+      "Visitor Intelligence",
+      "Basic white-label (your logo & colours)",
       "Custom dashboards",
-      "Native inbox (IMAP/SMTP)",
-      "AI workspace",
+      "Advanced bookings & calendars",
       "Priority support",
     ],
   },
   {
     name: "Enterprise",
     tagline: "For agencies and multi-team operations",
-    monthly: 99,
-    annual: 83,
+    monthly: null,
+    annual: null,
+    priceLabel: "POA",
     cta: "Contact us",
     ctaHref: "/contact",
     highlight: false,
     features: [
       "Everything in Growth",
-      "Full white-label branding",
-      "Advanced permissions & roles",
+      "Full white-label (custom sidebar labels & branded emails)",
       "Multi-tenant architecture",
-      "Visitor intelligence",
-      "Portfolio intelligence & radar",
+      "Advanced permissions & roles",
+      "Hands-on onboarding with a Colabr8 expert",
       "Industry templates",
-      "Dedicated onboarding",
       "SLA-backed support",
       "Custom terms available",
     ],
@@ -169,16 +185,26 @@ export default function PricingCards() {
               <div className="mb-8">
                 <h3 className="font-display font-bold text-xl text-white mb-1">{plan.name}</h3>
                 <p className="text-secondary text-sm mb-6">{plan.tagline}</p>
-                <div className="flex items-end gap-1">
-                  <span className="font-display font-extrabold text-5xl text-white">
-                    £{annual ? plan.annual : plan.monthly}
-                  </span>
-                  <span className="text-secondary text-sm mb-2">/mo</span>
-                </div>
-                {annual && (
-                  <p className="text-muted text-xs mt-1">
-                    Billed annually (£{(annual ? plan.annual : plan.monthly) * 10}/yr)
-                  </p>
+                {plan.priceLabel ? (
+                  <div className="flex items-end gap-1">
+                    <span className="font-display font-extrabold text-5xl text-white">
+                      {plan.priceLabel}
+                    </span>
+                  </div>
+                ) : (
+                  <>
+                    <div className="flex items-end gap-1">
+                      <span className="font-display font-extrabold text-5xl text-white">
+                        £{annual ? plan.annual : plan.monthly}
+                      </span>
+                      <span className="text-secondary text-sm mb-2">/mo</span>
+                    </div>
+                    {annual && (
+                      <p className="text-muted text-xs mt-1">
+                        Billed annually (£{(annual ? plan.annual! : plan.monthly!) * 10}/yr)
+                      </p>
+                    )}
+                  </>
                 )}
               </div>
 

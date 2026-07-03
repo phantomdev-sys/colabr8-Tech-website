@@ -49,12 +49,12 @@ export default function SaasTermsPage() {
                 operations, marketing, and intelligence features.
               </PlanCard>
 
-              <PlanCard name="Growth" price="£69/month">
+              <PlanCard name="Growth" price="£99/month">
                 Includes everything in Starter with higher usage limits and priority support.
                 Suitable for growing teams.
               </PlanCard>
 
-              <PlanCard name="Enterprise" price="£99/month">
+              <PlanCard name="Enterprise" price="POA">
                 Includes everything in Growth plus white-label capabilities, multi-tenant architecture,
                 and dedicated support. Suitable for agencies and larger organisations.
               </PlanCard>

@@ -68,8 +68,8 @@ const data: ComparePageData = {
       note: "GoHighLevel base tier in GBP equivalent",
     },
     {
-      label: "Small team, all features",
-      colabr8Price: "£69/mo",
+      label: "Small team — CRM, email, social & intelligence",
+      colabr8Price: "£99/mo",
       competitorPrice: "~£78/mo ($97)",
       note: "GoHighLevel Pro in GBP equivalent",
     },
