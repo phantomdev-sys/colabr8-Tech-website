@@ -58,13 +58,13 @@ export default function Nav() {
         <div className="flex items-center justify-between h-16">
 
           {/* Logo */}
-          <Link href="/" className="flex items-center flex-shrink-0">
+          <Link href="/" className="flex items-center flex-shrink-0 py-2 pl-1 sm:pl-2 lg:pl-3">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/logo/COLABR8-TECH-LOGO.png"
               alt="COLABR8 TECH"
-              height={56}
-              style={{ height: "56px", width: "auto", filter: "brightness(1)" }}
+              height={48}
+              style={{ height: "48px", width: "auto", filter: "brightness(1)" }}
             />
           </Link>
 
