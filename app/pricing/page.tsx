@@ -207,7 +207,7 @@ const faqs = [
   },
   {
     q: "Is pricing per user or per account?",
-    a: "Per account. There are no per-seat fees on any plan. You can add your whole team at no extra cost.",
+    a: "Per account. There are no per-seat fees on any plan.",
   },
   {
     q: "Is my data isolated from other accounts?",

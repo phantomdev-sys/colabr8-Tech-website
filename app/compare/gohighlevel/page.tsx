@@ -87,26 +87,7 @@ const data: ComparePageData = {
     },
   ],
 
-  testimonials: [
-    {
-      quote:
-        "We switched from GoHighLevel after six months. COLABR8 TECH does the same things but in a fraction of the setup time, and our clients actually understand it.",
-      author: "Digital Agency Owner",
-      role: "Manchester",
-    },
-    {
-      quote:
-        "The invoicing and bookings being connected to the CRM is what did it for us. GoHighLevel treated them as completely separate things.",
-      author: "Consultancy Director",
-      role: "Edinburgh",
-    },
-    {
-      quote:
-        "The white-label feature is what sold us. Our clients think it's our own platform — and the price is far lower than what we were paying before.",
-      author: "Marketing Agency",
-      role: "Bristol",
-    },
-  ],
+  testimonials: [],
 };
 
 export default function GoHighLevelComparePage() {

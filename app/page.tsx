@@ -8,7 +8,6 @@ import WhiteLabel from "@/components/white-label";
 import HowItWorks from "@/components/how-it-works";
 import ComparisonTable from "@/components/comparison-table";
 import PricingCards from "@/components/pricing-cards";
-import Testimonials from "@/components/testimonials";
 import CTASection from "@/components/cta-section";
 import Footer from "@/components/footer";
 
@@ -25,7 +24,6 @@ export default function Home() {
       <HowItWorks />
       <ComparisonTable />
       <PricingCards />
-      <Testimonials />
       <CTASection />
       <Footer />
     </main>

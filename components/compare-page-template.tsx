@@ -356,32 +356,34 @@ export default function ComparePageTemplate({ data }: { data: ComparePageData })
       </section>
 
       {/* ── Testimonials ── */}
-      <section className="py-24 bg-surface border-y border-divider">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-display font-extrabold text-3xl text-white mb-12 text-center">
-            What our customers say
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {data.testimonials.map((t, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="bg-surface-elevated border border-divider rounded-2xl p-7"
-              >
-                <div className="text-3xl font-serif text-primary mb-4 leading-none">&ldquo;</div>
-                <p className="text-secondary text-sm leading-relaxed mb-6">{t.quote}</p>
-                <div>
-                  <div className="text-white text-sm font-semibold">{t.author}</div>
-                  <div className="text-muted text-xs mt-0.5">{t.role}</div>
-                </div>
-              </motion.div>
-            ))}
+      {data.testimonials.length > 0 && (
+        <section className="py-24 bg-surface border-y border-divider">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="font-display font-extrabold text-3xl text-white mb-12 text-center">
+              What our customers say
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {data.testimonials.map((t, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{ duration: 0.6, delay: i * 0.1 }}
+                  className="bg-surface-elevated border border-divider rounded-2xl p-7"
+                >
+                  <div className="text-3xl font-serif text-primary mb-4 leading-none">&ldquo;</div>
+                  <p className="text-secondary text-sm leading-relaxed mb-6">{t.quote}</p>
+                  <div>
+                    <div className="text-white text-sm font-semibold">{t.author}</div>
+                    <div className="text-muted text-xs mt-0.5">{t.role}</div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* ── Bottom CTA ── */}
       <CTASection />

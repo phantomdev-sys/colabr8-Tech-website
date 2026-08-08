@@ -86,26 +86,7 @@ const data: ComparePageData = {
     },
   ],
 
-  testimonials: [
-    {
-      quote:
-        "We replaced three separate tools with COLABR8 TECH. Our team now works from one place and we actually know what's happening across every client.",
-      author: "Agency Owner",
-      role: "Belfast",
-    },
-    {
-      quote:
-        "The white-label feature is what sold us. Our clients think it's our own platform. Nothing like that exists in HubSpot.",
-      author: "Digital Studio",
-      role: "Glasgow",
-    },
-    {
-      quote:
-        "Finally a CRM that includes booking scheduling without a painful add-on charge. We were paying HubSpot £400 a month for less than this.",
-      author: "Service Business",
-      role: "London",
-    },
-  ],
+  testimonials: [],
 };
 
 export default function HubSpotComparePage() {

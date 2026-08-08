@@ -118,7 +118,7 @@ export default function Footer() {
             </ul>
             <div className="flex items-center gap-4">
               <a
-                href="https://linkedin.com/company/colabr8"
+                href="https://linkedin.com/company/colabr8-tech"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted hover:text-white transition-colors duration-150"
@@ -127,7 +127,7 @@ export default function Footer() {
                 <LinkedInIcon />
               </a>
               <a
-                href="https://facebook.com/colabr8"
+                href="https://facebook.com/colabr8tech"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted hover:text-white transition-colors duration-150"
@@ -136,7 +136,7 @@ export default function Footer() {
                 <FacebookIcon />
               </a>
               <a
-                href="https://x.com/colabr8"
+                href="https://x.com/colabr8tech"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted hover:text-white transition-colors duration-150"

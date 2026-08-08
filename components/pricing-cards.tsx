@@ -237,7 +237,7 @@ export default function PricingCards() {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="text-center text-muted text-sm mt-8"
         >
-          * Flat monthly pricing — no per-seat fees. One price per account regardless of team size.
+          * Flat monthly pricing — no per-seat fees. Price is per account, not per user.
         </motion.p>
       </div>
     </section>

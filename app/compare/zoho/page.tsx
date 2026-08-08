@@ -86,26 +86,7 @@ const data: ComparePageData = {
     },
   ],
 
-  testimonials: [
-    {
-      quote:
-        "We were on Zoho One for two years. Six separate apps, three different logins for clients, and data that never quite synced. COLABR8 TECH replaced all of it.",
-      author: "Operations Manager",
-      role: "Leeds",
-    },
-    {
-      quote:
-        "With Zoho, every time I wanted to check a client's bookings I had to switch apps. With COLABR8 TECH, everything is on the same record. It sounds small but it changes how the whole team works.",
-      author: "Agency Director",
-      role: "Cardiff",
-    },
-    {
-      quote:
-        "The flat pricing was the first thing that convinced us. We were paying per seat with Zoho and it was getting out of hand as the team grew.",
-      author: "Service Business Owner",
-      role: "Birmingham",
-    },
-  ],
+  testimonials: [],
 };
 
 export default function ZohoComparePage() {
