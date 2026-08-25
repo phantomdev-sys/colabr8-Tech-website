@@ -69,8 +69,10 @@ export default function SaasTermsPage() {
 
             <Section number="2" title="Annual billing">
               <p>
-                Annual subscriptions are available at a discounted rate. Annual fees are charged upfront
-                and are non-refundable after the 14-day cancellation window, except where required by law.
+                Annual subscriptions are available at a discounted rate. Annual fees are charged upfront.
+                Where a free trial applies, you are not charged until the trial ends. New subscribers may
+                cancel within 14 days of first payment for a full refund; after that window, fees are
+                non-refundable except where required by law.
               </p>
             </Section>
 
@@ -96,7 +98,8 @@ export default function SaasTermsPage() {
                 <a href="mailto:support@colabr8.tech" className="text-primary hover:underline">
                   support@colabr8.tech
                 </a>. Growth and Enterprise subscribers receive priority response times. We aim to respond
-                to all support queries within one business day.
+                to support queries within one business day. Response times are targets rather than
+                contractual guarantees unless separately agreed in writing.
               </p>
             </Section>
 
@@ -116,8 +119,8 @@ export default function SaasTermsPage() {
                 and UK GDPR obligations.
               </p>
               <p>
-                On request, we will enter into a Data Processing Agreement (DPA) with Enterprise subscribers.
-                Contact{" "}
+                On request, we will enter into a Data Processing Agreement (DPA) with any subscriber who
+                needs one. Contact{" "}
                 <a href="mailto:support@colabr8.tech" className="text-primary hover:underline">
                   support@colabr8.tech
                 </a>{" "}
@@ -125,10 +128,15 @@ export default function SaasTermsPage() {
               </p>
             </Section>
 
-            <Section number="8" title="Service level">
+            <Section number="8" title="Service availability">
               <p>
-                We target 99% monthly uptime, excluding scheduled maintenance. Scheduled maintenance will be
-                communicated at least 24 hours in advance where possible.
+                We work to keep the platform available and to resolve faults promptly, but the service is
+                provided on an &ldquo;as available&rdquo; basis. We do not currently offer a guaranteed uptime
+                level or a service level agreement. Where an SLA is agreed separately in writing for an
+                enterprise account, that agreement takes precedence.
+              </p>
+              <p>
+                Scheduled maintenance will be communicated at least 24 hours in advance where possible.
               </p>
             </Section>
 
